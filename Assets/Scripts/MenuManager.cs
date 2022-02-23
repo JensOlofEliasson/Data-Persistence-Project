@@ -43,7 +43,7 @@ public class MenuManager : MonoBehaviour
 
     public void Exit()
     {
-        EditorApplication.ExitPlaymode();
+       // EditorApplication.ExitPlaymode();
         Application.Quit();
     }
 
