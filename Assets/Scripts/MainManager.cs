@@ -15,9 +15,9 @@ public class MainManager : MonoBehaviour
     public Text newHighScoreText;
 
     public InputField inputName;
-
     public GameObject GameOverText;
-    public MenuManager MenuManager;
+
+    HighScoreManager HighScoreManager;
 
     private bool m_Started = false;
     private int m_Points;
@@ -30,7 +30,6 @@ public class MainManager : MonoBehaviour
     {
         newHighScoreText.gameObject.SetActive(false);
         inputName.gameObject.SetActive(false);
-       // highScoreText.text = MenuManager.ScoreName1 + " : " + MenuManager.highScore1;
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -81,11 +80,16 @@ public class MainManager : MonoBehaviour
     public void GameOver()
     {
         m_GameOver = true;
-        if (m_Points > MenuManager.highScore10)
+        if (m_Points > HighScoreManager.Instance.highScore10)
         {
             newHighScoreText.gameObject.SetActive(true);
             inputName.gameObject.SetActive(true);
         }
         GameOverText.SetActive(true);
+    }
+
+    public void ReturnToMenu()
+    {
+
     }
 }
